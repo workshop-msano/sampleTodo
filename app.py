@@ -8,8 +8,8 @@ def index():
         #データを投稿したらデータベースを更新、データベースからアイテムを取得して表示する
         return render_template("index.html", result = result)
     
+    #データベースからアイテムを取得して表示する
     return render_template('index.html', 
-        #データベースからアイテムを取得して表示する
     )
 
 
