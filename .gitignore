@@ -3,4 +3,4 @@ env*.pyc
 .venv
 migrations/*
 archives/*
-__pycashe__
+__pycache__/*
