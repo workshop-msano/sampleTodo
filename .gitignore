@@ -1,0 +1,6 @@
+.env
+env*.pyc
+.venv
+migrations/*
+archives/*
+__pycashe__
