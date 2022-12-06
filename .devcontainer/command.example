@@ -1,0 +1,7 @@
+#Excute the commands below in your terminal. Those are settings for connecting Github
+
+git config --global user.email '<your setting>'
+git config --global user.name '<Your setting>'
+
+mkdir -p ~/.ssh/
+curl -s -o ~/.ssh/id_ed25519 "https://github.com/$(git config --global --get user.name).keys"
