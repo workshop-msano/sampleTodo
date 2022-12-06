@@ -7,9 +7,11 @@
     <body>
         <h1>Sample ToDo</h1>
         <form method = "POST">
-            <p>Todo <input type = "text" name = "Todo" /></p>
+            <p>Todo <input type = "text" name = "todo" /></p>
             <p><input type = "submit" value = "submit" /></p>
          </form>
-         {{result}}
+         {% for todo in todos -%}
+            <p>{{todo[0].todo}}</p>
+         {% endfor %}
     </body>
 </html>
