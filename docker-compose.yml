@@ -1,22 +1,16 @@
-version: '3.10'
+version: '3.10' #version of docker-compose
 services:
   db:
-    image: postgres:14.1-alpine
+    image: postgres:14.1-alpine #pull postgres image from Dockerhub 
     restart: always
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-    ports: 
-      - '127.0.0.1:3000:5432'
     volumes: 
       - db:/var/lib/postgresql/data
     networks:
-      services-network:
+      mynet:
         aliases:
           - db
   web:
     container_name: sampletodo
-    #if you need to build the image, uncomment the next line. 
     build: .  
     depends_on:
       - db
@@ -24,23 +18,15 @@ services:
       - '127.0.0.1:8000:8080'
     environment:
       POSTGRES_URL: postgresql://postgres:postgres@db:5432/postgres
-      POSTGRES_USER: postgres
-      POSTGRES_PW: postgres
-      POSTGRES_DB: postgres
-    links: 
-      - db
     volumes:
       - './:/src'
     networks:
-      services-network:
-        aliases:
-          - web
+      mynet:
 
 volumes: 
   db: 
     driver: local
 
 networks:
-  services-network:
-    name: services-network
+  mynet:
     driver: bridge
