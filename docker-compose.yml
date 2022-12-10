@@ -2,6 +2,7 @@ version: '3.10' #version of docker-compose
 services:
   db:
     image: postgres:14.1-alpine #pull postgres image from Dockerhub 
+    container_name: sampletodo_db
     restart: always
     environment:
       - POSTGRES_USER=postgres
@@ -13,7 +14,7 @@ services:
         aliases:
           - db
   web:
-    container_name: sampletodo
+    container_name: sampletodo_web
     build: .  
     depends_on:
       - db
