@@ -14,8 +14,8 @@ services:
         aliases:
           - db
   web:
-    container_name: sampletodo_web
     build: .  
+    container_name: sampletodo_web
     depends_on:
       - db
     ports:
