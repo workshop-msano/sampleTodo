@@ -7,7 +7,8 @@ load_dotenv()
 
 print(os.getenv("DATABASE_URL"))
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("POSTGRES_URL")
+
 db = SQLAlchemy(app) 
 
 class Todo(db.Model):
@@ -36,4 +37,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8000)
+    app.run(debug=True, host='0.0.0.0',port=8080)
